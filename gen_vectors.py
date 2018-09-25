@@ -3,6 +3,7 @@ from argparse import ArgumentParser
 import ngram
 import numpy as np
 import os
+import re
 from scipy import sparse
 import sys
 
@@ -31,6 +32,7 @@ def read(file):
         n = hi * chars.LEN + lo
         vec[n] = vec[n] + 1.0
 
+    vec = vec / np.linalg.norm(vec)
     vecs.append(vec)
     if len(vecs) == 10000:
       yield vecs

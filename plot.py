@@ -57,7 +57,8 @@ if __name__ == '__main__':
     vec = sparse.load_npz(vector_filename)
     vec = vec.toarray()
     vec = pca.transform(vec).transpose()
-    pred = np.load(prediction_filename)
-    ax.scatter(vec[0], vec[1], s=5, c=pred)
+    pred = np.load(prediction_filename).tolist()
+    #pred = list(map(lambda n: n if n == 6 else 0, pred))
+    ax.scatter(vec[0], vec[1], s=1, c=pred)
 
   plt.show()

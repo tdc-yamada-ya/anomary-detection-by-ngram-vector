@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
   cnt = 0
   kmeans = cluster.MiniBatchKMeans(n_clusters=10)
-
+  
   print('Fit pass')
 
   for src_filename in find_files(src_dirname):
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
   for src_filename in find_files(src_dirname):
     print('src: {}'.format(src_filename))
-    index = re.search('([0-9]+)', os.path.basename(src_filename)).group(0)
+    index = re.search('([0-9]+)', os.path.basename(src_filename)).group(1)
     dest_filename = 'pred{}.npy'.format(index)
     dest_filename = os.path.join(dest_dirname, dest_filename)
     print('dest: {}'.format(dest_filename))

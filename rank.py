@@ -3,7 +3,6 @@ from argparse import ArgumentParser
 from collections import Counter
 import numpy as np
 import os
-import re
 
 def parse_arguments():
   usage = 'Usage: python {} FILE'.format(__file__)
@@ -43,6 +42,7 @@ if __name__ == '__main__':
 
   ranks = {key: rank for rank, key in enumerate(sorted(counter, key=counter.get, reverse=False), 1)}
 
+  print(ranks)
   print('Rank pass')
 
   line_number = 1
